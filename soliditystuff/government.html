@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>CryptoZombies front-end</title>
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="web3.min.js"></script>
+    <script language="javascript" type="text/javascript" src="government_abi.js"></script>
+  </head>
+  <body>
+    <div id="txStatus"></div>
+    <div id="government">
+        <form id = "government_form">
+            <input type = "text" id = "money" name = "money">
+            <input type = "text" id = "leader" name = "money">
+            <input type = "text" id = "parliamentary_seats" name = "parliamentary_seats">
+            <input type = "text" id = "leaders" name = "leaders">
+            <input type = "text" id = "tyrannical" name = "tyrannical">
+            <input type = "text" id = "private_money" name = "private_money">
+            <input type = "submit" value = "Submit">
+        </form>
+    </div>
+
+    <script>
+      var govnernment;
+      var userAccount;
+
+      function startApp() {
+          let trigger1 = document.getElementById("government_form");
+          trigger1.addEventListener("submit",create_government);
+        var government_address = "YOUR_CONTRACT_ADDRESS";
+        government = new web3js.eth.Contract(governmentABI, government_address);
+
+        var accountInterval = setInterval(function() {
+          // Check if account has changed
+          if (web3.eth.accounts[0] !== userAccount) {
+            userAccount = web3.eth.accounts[0];
+            // Call a function to update the UI with the new account
+            getZombiesByOwner(userAccount)
+            .then(display_goverments);
+          }
+        }, 100);
+
+        // Start here
+      }
+
+      function display_governments(ids) {
+        $("#government").empty();
+        for (id of ids) {
+          // Look up zombie details from our contract. Returns a `zombie` object
+          get_government_details(id)
+          .then(function(government) {
+            // Using ES6's "template literals" to inject variables into the HTML.
+            // Append each one to our #zombies div
+            $("#government").append(`<div class="government">
+              <ul>
+                
+                <li>Money: ${government.money}</li>
+                <li>Leader: ${government.leader}</li>
+                <li>Parliamentary Seats: ${government.parliamentary_seats}</li>
+                <li>Leaders: ${government.leaders}</li>
+                <li>Tyrannical: ${government.tyrranical}</li>
+                <li>Private_Money: ${government.private_money}</li>
+              </ul>
+            </div>`);
+          });
+        }
+      }
+
+      
+
+      
+
+      
+
+      function get_government_details(id) {
+        return government.methods.governments(id).call()
+      }
+
+      function create_government(){
+          let money = document.getElementById("money").value;
+          let leader = document.getElementById("leader").value;
+          let parliamentary_seats = document.getElementById("parliamentary_seats").value;
+          let leaders = document.getElementById("leaders").value;
+          let tyrannical = document.getElementById("tyrannical").value;
+          let private_money = document.getElementById("private_money").value;
+          return government.methods.create_government(money, leader, parliamentary_seats, leaders, tyrannical ,private_money).call();
+      }
+      function presidential_election(  candidates, government_id) {
+    return government.methods.presidential_election(candidates, government_id).call();
+
+}
+function parliamentary_election(  candidates, seat, government_id) {
+    return government.methods.parliamentary_election(candidates, seat, government_id).call();
+}
+function tyrranical_election(  candidate, government_id) {
+    return government.methods.tyrranical_election(candidate, government_id).call();
+}
+function spend_money( amount, government_id)  {
+    return government.methods.spend_money(amount,government_id).call();
+}
+function tax( amount, government_id) {
+    return government.methods.tax(amount,government_id).call();
+
+}
+
+  function generate_money( amount, government_id) {
+      return government.methods.generate_money(amount,government_id).call();
+  }
+
+      window.addEventListener('load', function() {
+
+        // Checking if Web3 has been injected by the browser (Mist/MetaMask)
+        if (typeof web3 !== 'undefined') {
+          // Use Mist/MetaMask's provider
+          web3js = new Web3(web3.currentProvider);
+        } else {
+          // Handle the case where the user doesn't have Metamask installed
+          // Probably show them a message prompting them to install Metamask
+        }
+
+        // Now you can start your app & access web3 freely:
+        startApp()
+
+      })
+    </script>
+  </body>
+</html>
