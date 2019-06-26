@@ -1,0 +1,19 @@
+.graph {
+    display:inline-block;
+    width: 400px;
+    height: 400px;
+    margin:5px;
+    border: 2px solid #000;
+   }
+body {
+    
+       background-color:lavender;
+       
+   }
+   .box {
+    display:inline-block;
+    width: 400px;
+    height: 400px;
+    margin:5px;
+    
+   }

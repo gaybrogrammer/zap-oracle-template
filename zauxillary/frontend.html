@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link rel = "stylesheet" href = "frontend.css" type ="text/css">
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Auxillary market front end</title>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    
+
+    <script language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script language="javascript" type="text/javascript" src="web3.min.js"></script>
+    <script src ="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    
+  </head>
+  <body >
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+              
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Dropdown
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </div>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                  </form>
+                </div>
+              </nav>
+              <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="hotguy6.jpg" alt="Card image cap">
+                    <div class="card-body">
+                      <p class="card-text">Look a hot guy in a card</p>
+                    </div>
+                  </div>
+                  <div class="card text-center" style="width: 18rem;">
+                        <div class="card-header">
+                          Featured
+                        </div>
+                        <ul class="list-group list-group-flush">
+                                <a class="btn btn-primary" href = "https://www.amazon.com">link1</a>
+                        
+                          <a class="btn btn-primary" href = "https://www.youtube.com">link2</a>
+                          
+                          <a class="btn btn-primary" href ="https://www.reddit.com" >link3</a>
+                        </ul>
+                      </div>
+                      <div class="card text-center">
+                            <div class="card-header">
+                              Featured
+                            </div>
+                            <div class="card-body">
+                              <h5 class="card-title">Cryptocurrency and Blockchain</h5>
+                              <p class="card-text">Bitcoin,Ethereum</p>
+                              <a href="https://cointelegraph.com" class="btn btn-primary">Bitcoin News</a>
+                            </div>
+                            <div class="card-footer text-muted">
+                              2 days ago
+                            </div>
+                          </div>
+                          <div class="row">
+                                <div class="col-sm-6">
+                                  <div class="card">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Bitcoin Blockchain</h5>
+                                      <p class="card-text">The Bitcoin Blockchain does not use tokens</p>
+                                      <a href="#" class="btn btn-success">Go To Bitcoin</a>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-sm-6">
+                                  <div class="card">
+                                    <div class="card-body">
+                                      <h5 class="card-title">Ethereum Blockchain</h5>
+                                      <p class="card-text">The Ethereum Block chain does use tokens</p>
+                                      <a href="#" class="btn btn-success">Go to Ethereum</a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+      <div>
+          <div class = "box">
+            <canvas id="myChart" width = "400" height = "400">
+                    <p>Hello Fuckers</p>
+            </canvas>
+        </div>
+        <div class = "box">
+            <canvas id="canvas" width = "300" height = "300">
+                    <p>Hello Fuckers</p>
+            </canvas>
+        </div>
+        <div class = "box">
+            <canvas id="densityChart" width="300" height="300"></canvas></div>
+      </div>
+        
+    
+
+    <script>
+var img = new Image();
+img.src = './trump.jpg';
+img.onload = function() {
+    var ctx2 = document.getElementById('canvas').getContext('2d');
+    var fillPattern = ctx2.createPattern(img, 'repeat');
+
+    var chart = new Chart(ctx2, {
+        type: 'polarArea',
+        data: {
+            labels: ['Item 1', 'Item 2', 'Item 3'],
+            datasets: [{
+                data: [10, 20, 30],
+                backgroundColor: fillPattern
+            }]
+        }
+    });
+    
+};
+
+var ctx = document.getElementById('myChart');
+var defaultLegendClickHandler = Chart.defaults.global.legend.onClick;
+var newLegendClickHandler = function (e, legendItem) {
+    var index = legendItem.datasetIndex;
+
+    if (index > 1) {
+        // Do the original logic
+        defaultLegendClickHandler(e, legendItem);
+    } else {
+        let ci = this.chart;
+        [
+            ci.getDatasetMeta(0),
+            ci.getDatasetMeta(1)
+        ].forEach(function(meta) {
+            meta.hidden = meta.hidden === null ? !ci.data.datasets[index].hidden : null;
+        });
+        ci.update();
+    }
+};
+var densityCanvas = document.getElementById("densityChart");
+
+Chart.defaults.global.defaultFontFamily = "Lato";
+Chart.defaults.global.defaultFontSize = 18;
+
+var densityData = {
+  label: 'Density of Planet (kg/m3)',
+  data: [5427, 5243, 5514, 3933, 1326, 687, 1271, 1638],
+  backgroundColor: 'rgba(0, 99, 132, 0.6)',
+  borderWidth: 0,
+  yAxisID: "y-axis-density"
+};
+
+var gravityData = {
+  label: 'Gravity of Planet (m/s2)',
+  data: [3.7, 8.9, 9.8, 3.7, 23.1, 9.0, 8.7, 11.0],
+  backgroundColor: 'rgba(99, 132, 0, 0.6)',
+  borderWidth: 0,
+  yAxisID: "y-axis-gravity"
+};
+
+var planetData = {
+  labels: ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"],
+  datasets: [densityData, gravityData]
+};
+
+var chartOptions = {
+    legend: {
+        onClick: newLegendClickHandler,
+            
+            labels: {
+                // This more specific font property overrides the global property
+                fontColor: 'cyan',
+                fontFamily: 'fantasy'
+            }
+        },
+  scales: {
+    xAxes: [{
+      barPercentage: 1,
+      categoryPercentage: 0.6
+    }],
+    yAxes: [{
+      id: "y-axis-density"
+    }, {
+      id: "y-axis-gravity"
+    }]
+  }
+};
+
+var barChart = new Chart(densityCanvas, {
+  type: 'bar',
+  data: planetData,
+  options: chartOptions
+});
+        
+var myChart = new Chart(ctx, {
+    type: 'radar',
+    data: {
+        labels: ['Cooking', 'Eating like a fatass', 'Doing Steroids', 'Lifting', 'Topping', 'Coding'],
+        datasets: [{
+            label: 'Dan\'s strengths',
+            data: [12, 20, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        layout: {
+            padding: {
+                left: 50,
+                right: 50,
+                top: 50,
+                bottom: 50
+            }
+        },
+        
+
+
+        
+        legend: {
+            
+            labels: {
+                // This more specific font property overrides the global property
+                fontColor: 'cyan',
+                fontFamily: 'fantasy'
+            }
+        },
+        tooltips: {
+            mode: 'point'
+        },
+        color: function(context) {
+    var index = context.dataIndex;
+    var value = context.dataset.data[index];
+    return value < 0 ? 'red' :  // draw negative values in red
+        index % 2 ? 'blue' :    // else, alternate values in blue and green
+        'green';
+},
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }],
+            xAxes: [{
+            ticks: {
+                fontSize: 10,
+                fontColor:"cyan",
+                fontFamily:"zapfino"
+            }
+        }]
+        }
+    }
+});
+
+
+        
+    </script>
+    
+  </body>
+</html>
