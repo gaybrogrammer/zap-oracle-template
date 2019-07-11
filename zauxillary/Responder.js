@@ -27,24 +27,26 @@ async function getResponse(query,params){
     var Zapamount = parseFloat(ZapAmount);
     var CoinMarketCap = require("node-coinmarketcap"); //instantiate coinmarketcap oracle (do not declare globally)
     var coinmarketcap = new CoinMarketCap; //instantiate coinmarketcap oracle 
-    let Zapprice;
-      coinmarketcap.get("Zap", coin => {
-         ZapPrice = parseFloat(coin.price_usd)
-         console.log("zapprice running");
+    let ZapPrice;
+    coinmarketcap.get("Zap", coin => {
+        ZapPrice = parseFloat(coin.price_usd)
+        console.log("zapprice running");
+        coinmarketcap.get(TokenName, coin2 => {
+            //set token price to the price on coinmarketcap
+         let TokenPrice = parseFloat(coin2.price_usd)
+         console.log("tokenprice running");
+         console.log("end statemenst of function running");
+     console.log(Zapamount);
+     console.log(ZapPrice);
+     console.log(TokenPrice);
+     var TokensAwarded = (Zapamount)*parseFloat(ZapPrice) / parseFloat(TokenPrice);
+ console.log("You have bought: " + TokensAwarded + " " + TokenName + " tokens at a price of: " + ZapPrice + " Zap");
+ 
+       });
 
-     });
-       coinmarketcap.get(TokenName, coin => {
-           //set token price to the price on coinmarketcap
-        let TokenPrice = parseFloat(coin.price_usd)
-        console.log("tokenprice running");
-        console.log("end statemenst of function running");
-    console.log(Zapamount);
-    console.log(ZapPrice);
-    console.log(TokenPrice);
-    var TokensAwarded = (Zapamount)*parseFloat(ZapPrice) / parseFloat(TokenPrice);
-console.log("You have bought: " + TokensAwarded + " " + TokenName + " tokens at a price of: " + ZapPrice + " Zap");
-
-      });
+    });
+      
+       
     
     
 }
